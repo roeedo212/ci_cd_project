@@ -16,7 +16,7 @@ pipeline {
     }
 
     environment {
-        DOCKER_IMAGE = 'roeedot/movie-rating'
+        DOCKER_IMAGE = 'roeeyakir/movie-rating'
     }
 
     stages {
