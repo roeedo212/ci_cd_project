@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: movie-rating-docker-helm-build
-    image: ezezeasy/ez-docker-helm-build:1.41
+    image: roeeyakir/movie-rating:0.1
     imagePullPolicy: Always
     securityContext:
       privileged: true
