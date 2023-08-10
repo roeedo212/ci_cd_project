@@ -1,5 +1,4 @@
-
-
+@Library('EZJEL') _
 def dockerImage
 pipeline {
     agent {
