@@ -49,7 +49,7 @@ pipeline {
         stage('Push Docker image') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'ez_dockerhub_credentials') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_id') {
                         dockerImage.push()
                     }
                 }
