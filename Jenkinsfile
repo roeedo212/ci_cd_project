@@ -3,10 +3,10 @@ def dockerImage
 pipeline {
     agent {
         kubernetes {
-        label 'movie-rating'
+        label 'ez-joy'
         idleMinutes 5
         yamlFile 'build-pod.yaml'
-        defaultContainer 'app-docker-helm-build'
+        defaultContainer 'ez-docker-helm-build'
         }
     }
 
