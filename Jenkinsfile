@@ -75,7 +75,7 @@ pipeline {
         
         stage('Push HELM chart') {
             when {
-                branch 'main'
+                branch 'feature'
             }
             steps {
                 script {
