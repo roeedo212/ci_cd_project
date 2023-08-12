@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: yakirlevi11/movie-rate-repo:{{ .Values.image.tag }}
+          image: yakirlevi11/movie-rate-repo:{{ .Chart.Version }}
           ports:
             - containerPort: 5000
           env:
