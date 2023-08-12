@@ -1,6 +1,6 @@
 # Define your custom configuration options here, such as:
 image:
-  repository: yakirlevi11/movie-rate-chart
+  repository: yakirlevi11/movie-rate-repo
   tag: "{{ .Chart.Version }}"
 service:
   type: LoadBalancer
