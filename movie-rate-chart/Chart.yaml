@@ -1,8 +1,8 @@
 apiVersion: v2
-appVersion: "1.21" #version for image
+appVersion: "1.22" #version for image
 description: A Helm chart for movie-rate
 name: movie-rate-chart
-version: "1.21" #version for chart
+version: "1.22" #version for chart
 type: application
 maintainers:
   - name: from movie-rate to movie-rate
