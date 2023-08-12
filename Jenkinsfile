@@ -48,9 +48,6 @@ pipeline {
         
 
         stage("Build Helm chart") {
-            when {
-                branch 'main'
-            }
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'docker-hub1', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USER')]) {
@@ -74,9 +71,6 @@ pipeline {
 
         
         stage('Push HELM chart') {
-            when {
-                branch 'main'
-            }
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'docker-hub1', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USER')]) {
