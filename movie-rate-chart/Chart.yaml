@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "1.5"
+appVersion: "0.0.1"
 description: A Helm chart for movie-rate
 name: movie-rate-chart
 version: 0.0.1
