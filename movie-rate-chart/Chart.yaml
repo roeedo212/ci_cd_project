@@ -1,0 +1,9 @@
+apiVersion: v2
+appVersion: "1.5"
+description: A Helm chart for movie-rate
+name: movie-rate-chart
+version: 0.0.1
+type: application
+maintainers:
+  - name: from movie-rate to movie-rate
+    email: movie@movie-rate.com
