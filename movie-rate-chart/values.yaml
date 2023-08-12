@@ -1,7 +1,7 @@
 # Define your custom configuration options here, such as:
 image:
   repository: yakirlevi11/movie-rate-repo
-  tag: "1.21"
+  tag: "1.22"
 service:
   type: LoadBalancer
   port: 5000
