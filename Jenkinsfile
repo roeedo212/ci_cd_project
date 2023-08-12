@@ -71,5 +71,20 @@ pipeline {
                 }
             }
         }
-    }
+
+        
+        stage('Push HELM chart') {
+            when {
+                branch 'main'
+            }
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USER')]) {
+                        sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u ${DOCKERHUB_USER} --password-stdin"
+                        sh 'helm push surf-booking-chart-'+env.BUILD_ID+'.tgz oci://registry-1.docker.io/lioratari'
+                    }
+                }
+            }
+
+    }   
 }
