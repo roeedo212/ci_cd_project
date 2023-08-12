@@ -16,6 +16,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'roeedot/movie-rate'
+        HELM_PACKAGE = 'roeedot/movie-rate-chart'
     }
 
     stages {
@@ -44,11 +45,27 @@ pipeline {
                 }
             }
         }
+        
+
+        stage("Build Helm chart") {
+            when {
+                branch 'main'
+            }
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USER')]) {
+                        sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u ${DOCKERHUB_USER} --password-stdin"
+                        sh 'helm push movie-rate-chart'+env.BUILD_ID+'.tgz oci://registry-1.docker.io/yakirlevi11'
+                    }
+                }
+            }
+
+        }
 
         stage('Push Docker image') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_id') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub1') {
                         dockerImage.push()
                     }
                 }
