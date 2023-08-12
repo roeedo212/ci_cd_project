@@ -50,7 +50,7 @@ pipeline {
         stage("Build Helm chart") {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub1', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USER')]) {
+                    withCredentials([usernamePassword(credentialsId: 'docker_hub1', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USER')]) {
                         sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u ${DOCKERHUB_USER} --password-stdin"
                         sh 'helm push movie-rate-chart'+env.BUILD_ID+'.tgz oci://registry-1.docker.io/yakirlevi11'
                     }
@@ -73,7 +73,7 @@ pipeline {
         stage('Push HELM chart') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub1', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USER')]) {
+                    withCredentials([usernamePassword(credentialsId: 'docker_hub1', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USER')]) {
                         sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u ${DOCKERHUB_USER} --password-stdin"
                         sh 'helm push movie-rate-chart'+env.BUILD_ID+'.tgz oci://registry-1.docker.io/yakirlevi11'
                     }
