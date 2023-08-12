@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-rate
+  labels:
+    app: movie-rate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movie-rate
+  template:
+    metadata:
+      labels:
+        app: movie-rate
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: :{{ .Chart.AppVersion }}"
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_HOST
+              value: {{ .Values.postgresql.host }}
+            - name: DB_PORT
+              value: "{{ .Values.postgresql.port }}"
+            - name: DB_NAME
+              value: {{ .Values.postgresql.database }}
+            - name: DB_USERNAME
+              value: {{ .Values.postgresql.username }}
+            - name: DB_PASSWORD
+              value: {{ .Values.postgresql.password }}
