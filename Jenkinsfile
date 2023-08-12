@@ -34,7 +34,7 @@ pipeline {
                     else {
                         env.BUILD_ID = "0." + ezUtils.getUniqueBuildIdentifier("issueNumber") + "." + id
                     }
-                    currentBuild.displayName+=" {build-name:"+env.BUILD_ID+"}"
+                    currentBuild.displayName+=" {build-name:"+env.BUILD_ID+ "}"
                 }
             }
         }
@@ -72,7 +72,7 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'docker_hub1', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USER')]) {
                         sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u ${DOCKERHUB_USER} --password-stdin"
-                        sh 'helm push movie-rate-chart'+env.BUILD_ID+'.tgz oci://registry-1.docker.io/yakirlevi11'
+                        sh 'helm push movie-rate-chart-'+env.BUILD_ID+'.tgz oci://registry-1.docker.io/yakirlevi11'
                     }
                 }
             }
