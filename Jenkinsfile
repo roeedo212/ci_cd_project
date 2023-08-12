@@ -15,8 +15,8 @@ pipeline {
     }
 
     environment {
-        DOCKER_IMAGE = 'roeedot/movie-rate'
-        HELM_PACKAGE = 'roeedot/movie-rate-chart'
+        DOCKER_IMAGE = 'yakirlevi11/movie-rate-repo'
+        HELM_PACKAGE = 'yakirlevi11/movie-rate-repo'
     }
 
     stages {
