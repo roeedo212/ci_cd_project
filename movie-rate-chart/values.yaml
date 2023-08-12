@@ -1,7 +1,7 @@
 # Define your custom configuration options here, such as:
 image:
   repository: yakirlevi11/movie-rate-chart
-  tag: {{ .Chart.Version }}
+  tag: "{{ .Chart.Version }}"
 service:
   type: LoadBalancer
   port: 5000
