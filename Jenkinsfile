@@ -17,6 +17,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'yakirlevi11/movie-rate-repo'
         HELM_PACKAGE = 'yakirlevi11/movie-rate-chart'
+        DOCKERHUB_CREDENTIALS = credentials('docker_hub1')
     }
 
     stages {
