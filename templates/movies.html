@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Most Rated Films in {{ year }}</title>
+</head>
+<body>
+    <h1>Most Rated Films in {{ year }}</h1>
+    <ul>
+        {% for movie in films %}
+            <li>{{ movie[0] }} - {{ movie[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
