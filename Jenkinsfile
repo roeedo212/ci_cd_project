@@ -1,12 +1,10 @@
-@Library('EZJEL') _
 def dockerImage
 pipeline {
     agent {
         kubernetes {
-        label 'ez-joy'
-        idleMinutes 5
-        yamlFile 'build-pod.yaml'
-        defaultContainer 'ez-docker-helm-build'
+            label 'promo-app'
+            yamlFile 'build-pod.yaml'
+            defaultContainer 'surfapp-docker-helm-build'
         }
     }
 
