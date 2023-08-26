@@ -5,7 +5,7 @@ pipeline {
             label 'promo-app'
             idleMinutes 5
             yamlFile 'build-pod.yaml'
-            defaultContainer 'movie-rate-docker-helm-build'
+            defaultContainer 'ez-docker-helm-build'
         }
     }
 
