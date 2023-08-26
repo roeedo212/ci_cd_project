@@ -4,7 +4,7 @@ pipeline {
         kubernetes {
             label 'promo-app'
             yamlFile 'build-pod.yaml'
-            defaultContainer 'surfapp-docker-helm-build'
+            defaultContainer 'movie-rate-docker-helm-build'
         }
     }
 
