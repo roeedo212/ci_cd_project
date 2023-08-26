@@ -24,16 +24,12 @@ pipeline {
             steps {
                 checkout scm
                 script {
-                    ezEnvSetup.initEnv()
-                    def id = ezUtils.getUniqueBuildIdentifier()
-                    if(BRANCH_NAME == 'main')
-                    {
-                        env.BUILD_ID = "1."+id
+                    if (env.BRANCH_NAME == 'main') {
+                        env.BUILD_ID = "1." + sh(returnStdout: true, script: 'echo $BUILD_NUMBER').trim()
+                    } else {
+                        env.BUILD_ID = "0." + sh(returnStdout: true, script: 'echo $BUILD_NUMBER').trim()
                     }
-                    else {
-                        env.BUILD_ID = "0." + ezUtils.getUniqueBuildIdentifier("issueNumber") + "." + id
-                    }
-                    currentBuild.displayName+=" {build-name:"+env.BUILD_ID+ "}"
+                    currentBuild.displayName += " {build-name:" + env.BUILD_ID + "}"
                 }
             }
         }
